@@ -28,3 +28,132 @@ VALUES
         'hello@unityserve.org',
         'unityserve-logo.png'
     );
+
+CREATE TABLE
+    project (
+        project_id SERIAL PRIMARY KEY,
+        organization_id INTEGER NOT NULL,
+        title VARCHAR(150) NOT NULL,
+        description TEXT NOT NULL,
+        location VARCHAR(255) NOT NULL,
+        date DATE NOT NULL,
+        CONSTRAINT fk_project_organization FOREIGN KEY (organization_id) REFERENCES organization (organization_id)
+    );
+
+INSERT INTO
+    project (
+        organization_id,
+        title,
+        description,
+        location,
+        date
+    )
+VALUES
+    -- BrightFuture Builders (ID: 1)
+    (
+        1,
+        'Community School Renovation',
+        'Renovating classrooms and improving learning facilities.',
+        'Kubwa, Abuja',
+        '2026-11-15'
+    ),
+    (
+        1,
+        'Community Road Improvement',
+        'Repairing damaged roads within the community.',
+        'Gwarinpa, Abuja',
+        '2026-11-22'
+    ),
+    (
+        1,
+        'Affordable Housing Support',
+        'Supporting low-income families with housing improvements.',
+        'Bwari, Abuja',
+        '2026-12-05'
+    ),
+    (
+        1,
+        'Public Water Project',
+        'Improving access to clean drinking water.',
+        'Dutse, Abuja',
+        '2026-12-12'
+    ),
+    (
+        1,
+        'Community Health Centre Upgrade',
+        'Improving facilities at a local health centre.',
+        'Kubwa, Abuja',
+        '2026-12-19'
+    ),
+    -- GreenHarvest Growers (ID: 2)
+    (
+        2,
+        'Urban Garden Development',
+        'Creating community gardens for local food production.',
+        'Kubwa, Abuja',
+        '2026-11-16'
+    ),
+    (
+        2,
+        'Tree Planting Campaign',
+        'Planting trees to improve the local environment.',
+        'Gwarinpa, Abuja',
+        '2026-11-23'
+    ),
+    (
+        2,
+        'Sustainable Farming Workshop',
+        'Teaching residents sustainable farming techniques.',
+        'Bwari, Abuja',
+        '2026-12-06'
+    ),
+    (
+        2,
+        'Community Composting Project',
+        'Encouraging recycling of organic waste into compost.',
+        'Dutse, Abuja',
+        '2026-12-13'
+    ),
+    (
+        2,
+        'School Vegetable Garden',
+        'Establishing vegetable gardens in local schools.',
+        'Kubwa, Abuja',
+        '2026-12-20'
+    ),
+    -- UnityServe Volunteers (ID: 3)
+    (
+        3,
+        'Community Food Distribution',
+        'Distributing food supplies to families in need.',
+        'Kubwa, Abuja',
+        '2026-11-17'
+    ),
+    (
+        3,
+        'Elderly Care Outreach',
+        'Providing assistance and companionship to elderly residents.',
+        'Gwarinpa, Abuja',
+        '2026-11-24'
+    ),
+    (
+        3,
+        'Youth Mentorship Programme',
+        'Helping young people develop useful life skills.',
+        'Bwari, Abuja',
+        '2026-12-07'
+    ),
+    (
+        3,
+        'Community Clean-up',
+        'Organizing volunteers to clean public spaces.',
+        'Dutse, Abuja',
+        '2026-12-14'
+    ),
+    (
+        3,
+        'School Supplies Donation',
+        'Providing educational materials to children.',
+        'Kubwa, Abuja',
+        '2026-12-21'
+    );
