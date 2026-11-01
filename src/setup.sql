@@ -157,3 +157,49 @@ VALUES
         'Kubwa, Abuja',
         '2026-12-21'
     );
+
+-- Create categories table
+CREATE TABLE
+    category (
+        category_id SERIAL PRIMARY KEY,
+        name VARCHAR(100) NOT NULL UNIQUE
+    );
+
+-- Create project_category junction table
+CREATE TABLE
+    project_category (
+        project_id INTEGER NOT NULL,
+        category_id INTEGER NOT NULL,
+        PRIMARY KEY (project_id, category_id),
+        CONSTRAINT fk_project_category_project FOREIGN KEY (project_id) REFERENCES project (project_id) ON DELETE CASCADE,
+        CONSTRAINT fk_project_category_category FOREIGN KEY (category_id) REFERENCES category (category_id) ON DELETE CASCADE
+    );
+
+-- Insert categories
+INSERT INTO
+    category (name)
+VALUES
+    ('Community Development'),
+    ('Environment'),
+    ('Education'),
+    ('Health and Welfare');
+
+-- Associate projects with categories
+INSERT INTO
+    project_category (project_id, category_id)
+VALUES
+    (1, 3),
+    (2, 1),
+    (3, 1),
+    (4, 1),
+    (5, 4),
+    (6, 2),
+    (7, 2),
+    (8, 3),
+    (9, 2),
+    (10, 2),
+    (11, 4),
+    (12, 4),
+    (13, 3),
+    (14, 2),
+    (15, 3);
