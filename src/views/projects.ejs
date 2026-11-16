@@ -14,11 +14,12 @@
           day: "numeric",
           timeZone: "UTC"
         }) %>:
-        <%= project.title %>
+        <a href="/project/<%= project.project_id %>"><%= project.title %></a>
         (<%= project.organization_name %>)
       </li>
     <% }) %>
   </ul>
+  <p><a href="/new-project">Add a new service project</a></p>
 </main>
 
 <%- include('partials/footer') %>
